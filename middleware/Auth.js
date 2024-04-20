@@ -10,14 +10,8 @@ module.exports = function(req, res, next){
 
         try{
             var decoded = jwt.verify(token,secret);
-            
-            if(decoded.role == 1){
-                next();
-            }else{
-                res.status(403);
-                res.send("Você não tem permissão para isso!");
-                return;
-            }
+            req.id = decoded.id
+            next();
         }catch(err){
             res.status(403);
             res.send("Você não está autenticado");
