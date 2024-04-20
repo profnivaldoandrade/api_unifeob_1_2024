@@ -132,7 +132,7 @@ class UserController{
 
         }else{
             res.status(403);
-            res.json({status: false});
+            res.send("E-mail incorreta");
 
         }
     }
