@@ -8,7 +8,7 @@ var Auth = require("../middleware/Auth");
 
 router.get('/', HomeController.index);
 router.get('/me',Auth,UserController.me);
-router.post('/user', UserController.create);
+router.post('/users', UserController.create);
 router.get("/user",AdminAuth,UserController.index);
 router.get("/user/:id",AdminAuth,UserController.findUser);
 router.put("/user",AdminAuth,UserController.edit);

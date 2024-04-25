@@ -38,7 +38,7 @@ class UserController {
     }
 
     async create(req, res) {
-        var { email, name, password } = req.body;
+        var { email, name, password, role } = req.body;
 
         if (email == undefined) {
             res.status(400);
@@ -55,7 +55,7 @@ class UserController {
         }
 
 
-        await User.new(email, password, name);
+        await User.new(email, password, name, role);
 
         res.status(200);
         res.send("Tudo OK!");
